@@ -51,15 +51,52 @@ def story1(win):
     newScreen.mainloop()
     # end parent function
 
+def story2(win):
+    # define story1 function
+    def final(tl: Toplevel, profession, noun, feeling, emotion, verb):
+        text=f'''
+            There was no tutorial paragraph to put here. Put something else in when you can.
+            {profession}, {noun}, {feeling}, {emotion}, {verb}.
+            '''
+        tl.geometry(newGeometry='500x550')
+        Label(tl, text='Story:', wraplength=tl.winfo_width()).place(x=160, y=310)
+        Label(tl, text=text, wraplength=tl.winfo_width()).place(x=0, y=330)
+        # end nested story function
+    newScreen=Toplevel(win, bg='red')
+    newScreen.title('Ambitions')
+    newScreen.geometry('500x500')
+
+    Label(newScreen, text='Ambitions').place(x=100, y=0)
+    Label(newScreen, text='Enter a profession:').place(x=0, y=35)
+    Label(newScreen, text='Enter a noun:').place(x=0, y=70)
+    Label(newScreen, text='Enter a feeling:').place(x=0, y=110)
+    Label(newScreen, text='Enter an emotion:').place(x=0, y=150)
+    Label(newScreen, text='Enter a verb:').place(x=0, y=190)
+
+    profession=Entry(newScreen, width=17)
+    profession.place(x=250, y=35)
+    noun=Entry(newScreen, width=17)
+    noun.place(x=250, y=70)
+    feeling=Entry(newScreen, width=17)
+    feeling.place(x=250, y=105)
+    emotion=Entry(newScreen, width=17)
+    emotion.place(x=250, y=150)
+    verb=Entry(newScreen, width=17)
+    verb.place(x=250, y=190)
+
+    submitButton=Button(newScreen, text='Submit', bg='blue', font=('Times', 12), command=lambda:final(newScreen, profession.get(), noun.get(), feeling.get(), emotion.get(), verb.get()))
+    submitButton.place(x=150, y=270)
+
+    newScreen.mainloop()
 
 Label(win, text='Kanzan\'s Amazing Mad Lib Generator').place(x=100, y=20)
 
 # create buttons
-storyButton1=Button(win, text='A memorable day', font=('Times New Roman', 13), command=lambda:story1(win), bg='blue')
+storyButton1=Button(win, text='A memorable day', font=('Times New Roman', 13), command=lambda:story1(win), bg='orange')
 # what is command lambda?
 storyButton1.place(x=140, y=90)
-# storyButton2=Button(win, text='Ambitions', font=('Times New Roman', 13), command=lambda:story2(win), bg='blue')
-# storyButton2.place(x=150, y=150)
+storyButton2=Button(win, text='Ambitions', font=('Times New Roman', 13), command=lambda:story2(win), bg='orange')
+storyButton2.place(x=150, y=150)
 
 win.update()
 # what does win.update do?
