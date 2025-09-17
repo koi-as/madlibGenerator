@@ -18,7 +18,7 @@ Note: This guide is for Windows operating system only
 You will need to have python 3 installed on your local machine to run the program. You can download Python [here](https://www.python.org/downloads/).
 
 Install
-- After you have downloaded python and set it up, download the index.py file.
+- After you have downloaded python and set it up, download the madlib.py file.
 
 - From there, go to where you downloaded the file to and right click the file to open more options.
 
